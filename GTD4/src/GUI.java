@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class GUI {
 
+    int countingClicks = 0; // Räknar när man trycker på Lägga till-knappen
+    
     ArrayList<Integer> textField = new ArrayList<Integer>();
     ArrayList<Integer> taBort = new ArrayList<Integer>();
     ArrayList<Integer> checkbox = new ArrayList<Integer>();
@@ -37,9 +39,31 @@ public class GUI {
         frame.setVisible(true);
     
     }
+
+    
     public static void main(String[] args) {
         new GUI();
     }
+
+
+
+    // Metod som lyssnar på Lägga till-knapppen och skapar en ny rad för text, checkbox och Tabort-knapp.
+    // public int addToDo(int antalKlick) {
+    //     Läggatillknapp.addActionListener(e -> {
+    //         countingClicks++;
+    //         panel.add(textField);
+    //         add checkbox
+    //         panel.add(taBort-knapp);
+    //         textField.add();
+    //         taBort.add();
+    //         checkbox.add();
+               // Måste lägga till en rad i GridLayout också
+    //         return countingClicks;
+    //     }
+    // }
+
+
+
 }
 
 //method för ta bort knappeen så den tar bort rutan.
