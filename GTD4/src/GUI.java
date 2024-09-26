@@ -8,7 +8,9 @@ import java.util.ArrayList;
 
 public class GUI {
 
-    ArrayList<Integer> ToDo = new ArrayList<Integer>();
+    ArrayList<Integer> textField = new ArrayList<Integer>();
+    ArrayList<Integer> taBort = new ArrayList<Integer>();
+    ArrayList<Integer> checkbox = new ArrayList<Integer>();
 
     public GUI(){
 
@@ -22,7 +24,7 @@ public class GUI {
         button.addActionListener(e -> {
             ToDo.add(1);
             int size = ToDo.size();
-            System.out.println(size);
+            System.out.println(size); // göra methoder för när man trycker på knappen lägger till en textfield, knapp för att ta bort och checkbox. en method för varje
         });
 
         JPanel panel = new JPanel();
@@ -39,3 +41,5 @@ public class GUI {
         new GUI();
     }
 }
+
+//method för ta bort knappeen så den tar bort rutan.
