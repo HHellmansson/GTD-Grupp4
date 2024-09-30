@@ -53,6 +53,11 @@ public class GUI {
     //         // Gör detta utanför och kalla på metoden ---->   Läggatillknapp.addActionListener(e -> {
     // public int addToDo(int antalKlick, ArrayList<Integer> text, ArrayList<Integer> taBort, ArrayList<Integer> checkb) {
     //         countingClicks++;
+    //         String nrClicks = "0";
+    //         nrClicks = "countingClicks";
+    //         JTextField nrClicks = new JTextField("");
+    //         JCheckBox nrClicks = new JCheckBox(); 
+    //         JButton nrClicks = new JButton("Ta bort");
     //         panel.add(textField);
     //         panel.add(check);
     //         panel.add(button);
