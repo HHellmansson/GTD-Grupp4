@@ -18,7 +18,8 @@ public class GUI {
     JLabel label = new JLabel("hello");
     JTextField textField = new JTextField("");
     JCheckBox check = new JCheckBox(); 
-    JButton button = new JButton("+");
+    JButton taBortKnapp = new JButton("Ta bort");
+    JButton läggTillKnapp = new JButton("Lägg till");
     JPanel panel = new JPanel();
 
     public GUI(){
@@ -26,17 +27,16 @@ public class GUI {
         JFrame frame = new JFrame("Mitt första GUI");
         frame.setSize(400, 300);
 
-        button.addActionListener(e -> {
-            ToDo.add(1);
-            int size = ToDo.size();
-            System.out.println(size); // göra methoder för när man trycker på knappen lägger till en textfield, knapp för att ta bort och checkbox. en method för varje
+        läggTillKnapp.addActionListener(e -> {
+            addToDo(countingClicks, textFieldArray, taBort, checkbox);
         });
 
         panel.setLayout(new GridLayout(1, 3));
         panel.add(label);
         panel.add(textField);
-        panel.add(button);
+        panel.add(taBortKnapp);
         panel.add(check);
+        panel.add(läggTillKnapp);
 
         frame.add(panel);
         frame.setVisible(true);
@@ -51,22 +51,21 @@ public class GUI {
 
     // // Metod som lyssnar på Lägga till-knapppen och skapar en ny rad för text, checkbox och Tabort-knapp.
     //         // Gör detta utanför och kalla på metoden ---->   Läggatillknapp.addActionListener(e -> {
-    // public int addToDo(int antalKlick, ArrayList<Integer> text, ArrayList<Integer> taBort, ArrayList<Integer> checkb) {
-    //         countingClicks++;
-    //         String nrClicks = "0";
-    //         nrClicks = "countingClicks";
-    //         JTextField nrClicks = new JTextField("");
-    //         JCheckBox nrClicks = new JCheckBox(); 
-    //         JButton nrClicks = new JButton("Ta bort");
-    //         panel.add(textField);
-    //         panel.add(check);
-    //         panel.add(button);
-    //         textFieldArray.add(1);
-    //         checkbox.add(1);
-    //         taBort.add(1);
-    //            //Lägga till en rad i Gridlayout utanför metod så man slipper importera argument osv?
-    //         return countingClicks;
-    // }
+    public int addToDo(int antalKlick, ArrayList<Integer> text, ArrayList<Integer> taBort, ArrayList<Integer> checkb) {
+            countingClicks++;
+            String str = Integer.toString(countingClicks);
+            JTextField nrClicks = new JTextField("");     //Vill döpa dem till siffran i countingClicks
+            JCheckBox one = new JCheckBox(); 
+            JButton two = new JButton("Ta bort");
+            panel.add(nrClicks);
+            panel.add(one);
+            panel.add(two);
+            textFieldArray.add("countingClicks"); //Vill döpa dem till siffran i countingClicks
+            checkbox.add("countingClicks");
+            taBort.add("countingClicks");
+               //Lägga till en rad i Gridlayout utanför metod så man slipper importera argument osv?
+            return countingClicks;
+    }
 
 }
 
