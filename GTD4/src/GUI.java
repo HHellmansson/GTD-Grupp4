@@ -10,35 +10,34 @@ import java.util.ArrayList;
 public class GUI {
 
     int countingClicks = 0; // Håller koll på hur många gånger man tryckt på Lägga till-knappen
-    
+
     ArrayList<Integer> textFieldArray = new ArrayList<Integer>();
-    ArrayList<Integer> taBort = new ArrayList<Integer>();
+    ArrayList<Integer> taBort = new ArrayList<Integer>();             //Bättre att göra listor med objekt där man kan spara textfield, checkbox och knappar istället för bara ints?
     ArrayList<Integer> checkbox = new ArrayList<Integer>();
 
-    JLabel label = new JLabel("hello");
+    JLabel label = new JLabel("Att göra-lista");
     JTextField textField = new JTextField("");
     JCheckBox check = new JCheckBox(); 
-    JButton button = new JButton("+");
-    JPanel panel = new JPanel();
+    JButton taBortKnapp = new JButton("Ta bort");
+    JButton läggTillKnapp = new JButton("Lägg till");
+    JPanel startPanel = new JPanel();
+    JPanel toDoPanel = new JPanel();
 
     public GUI(){
 
         JFrame frame = new JFrame("Mitt första GUI");
         frame.setSize(400, 300);
 
-        button.addActionListener(e -> {
-            ToDo.add(1);
-            int size = ToDo.size();
-            System.out.println(size); // göra methoder för när man trycker på knappen lägger till en textfield, knapp för att ta bort och checkbox. en method för varje
+        läggTillKnapp.addActionListener(e -> {
+            addToDo(countingClicks);
+            // toDoPanel.setLayout(new GridLayout(countingClicks + 1, 3));     Använda?
+            frame.add(toDoPanel);
         });
 
-        panel.setLayout(new GridLayout(1, 3));
-        panel.add(label);
-        panel.add(textField);
-        panel.add(button);
-        panel.add(check);
+        startPanel.add(label);
+        startPanel.add(läggTillKnapp);
 
-        frame.add(panel);
+        frame.add(startPanel);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -50,18 +49,19 @@ public class GUI {
 
 
     // // Metod som lyssnar på Lägga till-knapppen och skapar en ny rad för text, checkbox och Tabort-knapp.
-    //         // Gör detta utanför och kalla på metoden ---->   Läggatillknapp.addActionListener(e -> {
-    // public int addToDo(int antalKlick, ArrayList<Integer> text, ArrayList<Integer> taBort, ArrayList<Integer> checkb) {
-    //         countingClicks++;
-    //         panel.add(textField);
-    //         panel.add(check);
-    //         panel.add(button);
-    //         textFieldArray.add(1);
-    //         checkbox.add(1);
-    //         taBort.add(1);
-    //            //Lägga till en rad i Gridlayout utanför metod så man slipper importera argument osv?
-    //         return countingClicks;
-    // }
+    public int addToDo(int antalKlick) {
+            countingClicks++;
+            JTextField nrClicks = new JTextField(25); 
+            JCheckBox checkB = new JCheckBox();                  
+            JButton butt = new JButton("Ta bort");         
+            toDoPanel.add(nrClicks);
+            toDoPanel.add(checkB);
+            toDoPanel.add(butt);
+            textFieldArray.add(countingClicks);
+            checkbox.add(countingClicks);
+            taBort.add(countingClicks);    
+            return countingClicks;
+    }
 
 }
 
